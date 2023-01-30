@@ -1,8 +1,36 @@
----Which year had the highest sales?
+---CREATE TABLE
 
---Do the sales always rise near the holiday season for all the years?
+CREATE TABLE supermarket(
+    branch VARCHAR,
+    city VARCHAR,
+    customer VARCHAR,
+    gender VARCHAR,
+    product_line VARCHAR,
+    unit_price DECIMAL,
+    quantity INT,
+    total DECIMAL,
+    date_ DATE,
+    payment DECIMAL
+);
 
---Analyze the relationship between sales and the different macroeconomic variables in the dataset.
+--- Which month had the highest sales?
 
-SELECT * FROM supermarket
-LIMIT 10
+SELECT EXTRACT(MONTH FROM date_)AS month ,ROUND(SUM(total),2) AS total_in_$ 
+FROM supermarket
+GROUP BY month
+ORDER BY total_in_$ DESC;
+
+---
+
+--- Total sales amounts based on products categories.
+
+SELECT product_line,SUM(total) AS total_sum 
+FROM supermarket
+GROUP BY product_line
+ORDER BY total_sum DESC;
+
+---
+
+
+
+
