@@ -13,6 +13,7 @@ CREATE TABLE supermarket(
     payment DECIMAL
 );
 
+---
 --- Which month had the highest sales?
 
 SELECT EXTRACT(MONTH FROM date_)AS month ,ROUND(SUM(total),2) AS total_in_$ 
@@ -21,7 +22,6 @@ GROUP BY month
 ORDER BY total_in_$ DESC;
 
 ---
-
 --- Total sales amounts based on products categories.
 
 SELECT product_line,SUM(total) AS total_sum 
@@ -30,7 +30,6 @@ GROUP BY product_line
 ORDER BY total_sum DESC;
 
 ---
-
 --- Total sales based on gender and products categories.
 
 SELECT gender,product_line,SUM(total) AS total_sales 
@@ -39,7 +38,6 @@ GROUP BY gender,product_line
 ORDER BY total_sales DESC;
 
 ---
-
 --- What is the most popular way of payment based on gender and customer type.
 
 SELECT gender,customer,
@@ -80,3 +78,4 @@ ORDER BY date_) AS sub
 GROUP BY date_;
 
 ---
+--- 
