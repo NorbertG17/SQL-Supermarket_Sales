@@ -78,4 +78,4 @@ ORDER BY date_) AS sub
 GROUP BY date_;
 
 ---
---- 
+--- The difference between average and total sales amount each day
