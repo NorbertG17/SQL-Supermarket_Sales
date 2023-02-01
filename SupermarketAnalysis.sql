@@ -78,4 +78,9 @@ ORDER BY date_) AS sub
 GROUP BY date_;
 
 ---
---- The difference between average and total sales amount each day
+--- Average spending by one customer in each city
+
+SELECT date_,city,gender,ROUND(AVG(total),2) AS average_spending FROM supermarket
+GROUP BY date_,city,gender
+ORDER BY date_
+
